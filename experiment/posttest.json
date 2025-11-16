@@ -2,38 +2,140 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the $2 \\times 2$ binary kernel matrix $G_2$ that is used to construct the generator matrix for all Reed-Muller codes?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "$\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$",
+        "b": "$\\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$",
+        "c": "$\\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}$",
+        "d": "$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Correct. This is the fundamental kernel matrix $G_2$.",
+        "b": "Incorrect. This is the transpose of $G_2$.",
+        "c": "Incorrect. This matrix is not the standard kernel.",
+        "d": "Incorrect. This is the identity matrix, and its Kronecker product would just be a larger identity matrix."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which matrix operation is repeatedly applied to the kernel $G_2$ to create the full $2^m \\times 2^m$ matrix $G_2^{\\otimes m}$?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Matrix Multiplication",
+        "b": "Kronecker Product ($\\otimes$)",
+        "c": "Hadamard Product (Component-wise)",
+        "d": "Matrix Addition"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Standard matrix multiplication $G_2^m$ would not create the $2^m \\times 2^m$ block structure.",
+        "b": "Correct. The $m$-fold Kronecker product $G_2^{\\otimes m} = G_2 \\otimes \\dots \\otimes G_2$ is used.",
+        "c": "Incorrect. The Hadamard product requires matrices of the same size and does not increase the matrix dimensions.",
+        "d": "Incorrect. Matrix addition is not used for this construction."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How is the generator matrix for the repetition code $RM(0, m)$ formed from $G_2^{\\otimes m}$?",
+      "answers": {
+        "a": "By selecting all rows of $G_2^{\\otimes m}$.",
+        "b": "By selecting all rows with Hamming weight equal to 1.",
+        "c": "By selecting only the first row (the all-ones vector).",
+        "d": "By selecting only the last row."
+      },
+      "explanations": {
+        "a": "Incorrect. This would form the $RM(m, m)$ code.",
+        "b": "Incorrect. The row with weight 1 is the last row, not the first.",
+        "c": "Correct. The selection rule is weight $\\ge 2^{m-0} = 2^m$. Only the first row (the all-ones vector) has this weight.",
+        "d": "Incorrect. The last row has weight 1."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "How is the generator matrix for the full space $RM(m, m)$ formed from $G_2^{\\otimes m}$?",
+      "answers": {
+        "a": "By selecting all rows, as $G_{RM(m,m)} = G_2^{\\otimes m}$.",
+        "b": "By selecting only the first row.",
+        "c": "By selecting all rows with weight less than 2.",
+        "d": "By selecting all rows with even Hamming weight."
+      },
+      "explanations": {
+        "a": "Correct. The selection rule is weight $\\ge 2^{m-m} = 2^0 = 1$. Since all rows of $G_2^{\\otimes m}$ are non-zero and have weight at least 1, all rows are selected.",
+        "b": "Incorrect. This would form the $RM(0, m)$ code.",
+        "c": "Incorrect. This would only select the last row (weight 1).",
+        "d": "Incorrect. This is not the correct selection rule."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the general rule for selecting rows from $G_2^{\\otimes m}$ to form the generator matrix for $RM(r, m)$?",
+      "answers": {
+        "a": "Select all rows with Hamming weight $\\le 2^{m-r}$.",
+        "b": "Select all rows with Hamming weight $\\ge 2^{m-r}$.",
+        "c": "Select all rows with Hamming weight $\\le r$.",
+        "d": "Select all rows with Hamming weight $\\ge 2^r$."
+      },
+      "explanations": {
+        "a": "Incorrect. This is the inverse of the correct rule.",
+        "b": "Correct. This is the fundamental row selection rule based on Hamming weight.",
+        "c": "Incorrect. The rule depends on $m$ and $r$, and the weight is a power of 2.",
+        "d": "Incorrect. The exponent in the weight threshold is $m-r$, not $r$."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "The rows of $G_2^{\\otimes m}$ are the evaluation vectors of a set of polynomials. What set of polynomials do they represent?",
+      "answers": {
+        "a": "All multilinear monomials of degree exactly $r$.",
+        "b": "All multilinear monomials in $m$ variables (e.g., $1, X_1, X_2, X_1X_2, \\dots$).",
+        "c": "All polynomials of total degree at most $r$.",
+        "d": "Only the single variables $X_m, \\dots, X_1$."
+      },
+      "explanations": {
+        "a": "Incorrect. This is only a subset of the rows.",
+        "b": "Correct. Each of the $2^m$ rows corresponds to the evaluation vector of one of the $2^m$ possible multilinear monomials in $m$ variables.",
+        "c": "Incorrect. This describes the codewords of $RM(r,m)$, which are linear combinations of the rows, not the rows themselves.",
+        "d": "Incorrect. This omits the constant $1$ and all higher-degree monomials."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "According to the duality theorem, what is the dual code of $RM(r, m)$, denoted $[RM(r, m)]^{\\perp}$?",
+      "answers": {
+        "a": "$RM(m-r, m)$",
+        "b": "$RM(r, m)$ (it is always self-dual)",
+        "c": "$RM(m-r-1, m)$",
+        "d": "$RM(r-1, m)$"
+      },
+      "explanations": {
+        "a": "Incorrect. This is a common off-by-one error.",
+        "b": "Incorrect. Only specific RM codes are self-dual, such as $RM(1, 3)$.",
+        "c": "Correct. This is the fundamental duality property of Reed-Muller codes.",
+        "d": "Incorrect. The relationship involves $m-r$, not $r-1$."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "The inductive proof for minimum distance relies on the $(u|u+v)$ construction. This implies $G_{RM(r,m)}$ has a specific recursive block structure. What is it?",
+      "answers": {
+        "a": "$\\begin{pmatrix} G_{RM(r-1, m-1)} & G_{RM(r-1, m-1)} \\\\ \\mathbf{0} & G_{RM(r, m-1)} \\end{pmatrix}$",
+        "b": "$\\begin{pmatrix} G_{RM(r, m-1)} & G_{RM(r-1, m-1)} \\\\ G_{RM(r-1, m-1)} & G_{RM(r, m-1)} \\end{pmatrix}$",
+        "c": "$\\begin{pmatrix} G_{RM(r, m)} & \\mathbf{0} \\\\ \\mathbf{0} & G_{RM(r-1, m)} \\end{pmatrix}$",
+        "d": "$\\begin{pmatrix} G_{RM(r, m-1)} & G_{RM(r, m-1)} \\\\ \\mathbf{0} & G_{RM(r-1, m-1)} \\end{pmatrix}$"
+      },
+      "explanations": {
+        "a": "Incorrect. The $r$ and $r-1$ codes are in the wrong positions.",
+        "b": "Incorrect. This is not the correct block structure.",
+        "c": "Incorrect. This does not follow the recursive $(u|u+v)$ construction.",
+        "d": "Correct. This is the block matrix structure derived in the proof, corresponding to the $(u|u+v)$ construction where $u \\in RM(r, m-1)$ and $v \\in RM(r-1, m-1)$."
+      },
+      "correctAnswer": "d",
+      "difficulty": "advanced"
     }
   ]
 }
