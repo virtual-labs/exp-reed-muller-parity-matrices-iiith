@@ -228,7 +228,7 @@ function checkPart1() {
 
     if (isPart1Correct) {
         part1Class = 'feedback-correct';
-        part1Feedback = `<strong>Correct!</strong> Your selections are valid.`;
+        part1Feedback = `<strong>Correct!</strong> Your selections are valid. Scroll down for Part 2.`;
 
         // --- Show Part 2 ONLY IF Part 1 is correct ---
         document.getElementById('part2Question').style.display = 'block';
@@ -240,9 +240,9 @@ function checkPart1() {
     } else {
         // MODIFIED FEEDBACK
         if (problem.activeExperiment === 1) {
-            part1Feedback = `<strong>Incorrect.</strong> Re-check your selections. Remember, you are looking for vectors that are <strong>NOT</strong> in the generator matrix of \\(RM(${problem.r_base}, m)\\). (i.e., invalid vectors or degree > ${problem.r_base}).`;
+            part1Feedback = `<strong>Incorrect.</strong> Re-check your selections. Remember, you are looking for vectors that are <strong>NOT</strong> in the generator matrix of \\(RM(${problem.r_base}, 4)\\). (i.e., invalid vectors or degree > ${problem.r_base}).`;
         } else {
-            part1Feedback = `<strong>Incorrect.</strong> Re-check your selections. Remember, you are looking for vectors that <strong>ARE</strong> in the parity check matrix of \\(RM(${problem.r_base}, m)\\). (Hint: These are the generator rows of \\(RM(${problem.r_problem}, m)\\), so you need valid vectors with degree \(\leq ${problem.r_problem}\)).`;
+            part1Feedback = `<strong>Incorrect.</strong> Re-check your selections. Remember, you are looking for vectors that <strong>ARE</strong> in the parity check matrix of \\(RM(${problem.r_base}, 4)\\). (Hint: These are the generator rows of \\(RM(${problem.r_problem}, 4)\\), so you need valid vectors with degree at most\( ${problem.r_problem}\)).`;
         }
         
         // --- Ensure Part 2 remains hidden ---
