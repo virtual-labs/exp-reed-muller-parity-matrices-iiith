@@ -89,7 +89,7 @@ An observation on the matrix $G_2^{\otimes m}$ is that the Hamming weight of its
 
 This constructive method is perfectly equivalent to the polynomial evaluation definition. The rows of $G_2^{\otimes m}$ are, in fact, the evaluation vectors of all possible monomials of $m$ variables.
 
-The correspondence is as follows: Let the binary representation of the row index $j$ be $(b_m b_{m-1} \dots b_1)$, where $b_1$ is the least significant bit (LSB). The $j$-th row of $G_2^{\otimes m}$ corresponds to the evaluation vector of the monomial $M_j = \prod_{i=1}^m X_i^{b_i}$. For instance, if $m=3$ and $j=5$, its binary representation is $(101)_2$, so the monomial is $X_3^1 X_2^0 X_1^1 = X_1 X_3$.
+The correspondence is as follows: Let the binary representation of the row index $j$ be $(b_1 b_2 \dots b_m)$, where $b_1$ is the most significant bit (MSB). The $j$-th row of $G_2^{\otimes m}$ corresponds to the evaluation vector of the monomial $M_j = \prod_{i=1}^m X_i^{b_i}$. For instance, if $m=3$ and $j=5$, its binary representation is $(101)_2$, so the monomial is $X_1^1 X_2^0 X_3^1 = X_1 X_3$.
 
 The Hamming weight of the evaluation vector for a monomial of degree $d$ is exactly $2^{m-d}$.
 
@@ -104,23 +104,23 @@ This shows that selecting rows with weight at least $2^{m-r}$ is identical to se
 *   **Parameters:** $m=3, r=1$.
 *   **Selection Rule:** Select rows from $G_2^{\otimes 3}$ with Hamming weight $\ge 2^{3-1} = 4$.
 
-Let's examine the rows of $G_2^{\otimes 3}$ and their corresponding monomials, with $X_1$ as the LSB.
+Let's examine the rows of $G_2^{\otimes 3}$ and their corresponding monomials, with $X_1$ as the MSB.
 
-| Row Index ($j$) | Binary Rep. ($b_3b_2b_1$) | Monomial | Hamming Weight | Select? (Weight $\ge 4$) |
+| Row Index ($j$) | Binary Rep. ($b_1b_2b_3$) | Monomial | Hamming Weight | Select? (Weight $\ge 4$) |
 | :------------ | :---------- | :------------------------------------------ | :------------- | :----------------------- |
 | 0             | 000         | $1$                                         | $8 = 2^{3-0}$  | Yes                      |
-| 1             | 001         | $X_1$                                       | $4 = 2^{3-1}$  | Yes                      |
+| 1             | 001         | $X_3$                                       | $4 = 2^{3-1}$  | Yes                      |
 | 2             | 010         | $X_2$                                       | $4 = 2^{3-1}$  | Yes                      |
-| 3             | 011         | $X_1X_2$                                    | $2 = 2^{3-2}$  | No                       |
-| 4             | 100         | $X_3$                                       | $4 = 2^{3-1}$  | Yes                      |
+| 3             | 011         | $X_2X_3$                                    | $2 = 2^{3-2}$  | No                       |
+| 4             | 100         | $X_1$                                       | $4 = 2^{3-1}$  | Yes                      |
 | 5             | 101         | $X_1X_3$                                    | $2 = 2^{3-2}$  | No                       |
-| 6             | 110         | $X_2X_3$                                    | $2 = 2^{3-2}$  | No                       |
+| 6             | 110         | $X_1X_2$                                    | $2 = 2^{3-2}$  | No                       |
 | 7             | 111         | $X_1X_2X_3$                                 | $1 = 2^{3-3}$  | No                       |
 
 The selected monomials are $\{1, X_1, X_2, X_3\}$. The generator matrix is formed by taking the rows from $G_2^{\otimes 3}$ with indices 0, 1, 2, and 4, in that specific order.
 
 $$ 
-G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \begin{matrix} \leftarrow \text{Eval}(1) \\ \leftarrow \text{Eval}(X_1) \\ \leftarrow \text{Eval}(X_2) \\ \leftarrow \text{Eval}(X_3) \end{matrix} 
+G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \begin{matrix} \leftarrow \text{Eval}(1) \\ \leftarrow \text{Eval}(X_3) \\ \leftarrow \text{Eval}(X_2) \\ \leftarrow \text{Eval}(X_1) \end{matrix} 
 $$
 
 ---
