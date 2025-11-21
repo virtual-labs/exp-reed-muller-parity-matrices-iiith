@@ -210,3 +210,22 @@ input[type="checkbox"] {
     color: red;
     font-weight: bold;
 }
+
+/* Button Container for side-by-side alignment */
+.button-container {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Specific style for the Reload button (e.g., orange/warning color) */
+.v-button-reload {
+    /* background-color: #3273dc; Orange */
+    color: white;
+    /* border: 1px solid #3273dc; */
+}
+
+.v-button:hover {
+    background-color: #e68a00;
+}

@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('submitPart1Button').addEventListener('click', checkPart1);
     document.getElementById('submitPart2Button').addEventListener('click', checkPart2);
 
+    document.getElementById('reloadBtn1').addEventListener('click', () => setupProblem(exp));
+    document.getElementById('reloadBtn2').addEventListener('click', () => setupProblem(exp));
+
     // Load the correct experiment
     setupProblem(exp);
 });
@@ -102,10 +105,10 @@ function resetUI() {
     
     // Hide Part 2
     document.getElementById('part2Question').style.display = 'none';
-    document.getElementById('submitPart2Button').style.display = 'none';
+    document.getElementById('part2ButtonContainer').style.display = 'none';
 
     // Show Part 1 button
-    document.getElementById('submitPart1Button').style.display = 'block';
+    document.getElementById('part1ButtonContainer').style.display = 'block';
 
     // Uncheck all inputs
     document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
@@ -230,12 +233,15 @@ function checkPart1() {
         part1Class = 'feedback-correct';
         part1Feedback = `<strong>Correct!</strong> Your selections are valid. Scroll down for Part 2.`;
 
-        // --- Show Part 2 ONLY IF Part 1 is correct ---
+        // 1. Show the Question Text
         document.getElementById('part2Question').style.display = 'block';
+        
+        // 2. Show the Button Container 
+        document.getElementById('part2ButtonContainer').style.display = 'flex';
         document.getElementById('submitPart2Button').style.display = 'block';
         
-        // Hide Part 1 button
-        document.getElementById('submitPart1Button').style.display = 'none';
+        // 3. Hide the Part 1 Button Container
+        document.getElementById('part1ButtonContainer').style.display = 'none';
 
     } else {
         // MODIFIED FEEDBACK
