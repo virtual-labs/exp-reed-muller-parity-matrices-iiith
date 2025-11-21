@@ -122,7 +122,7 @@ function setupProblem(exp) {
     problem.m = monomialPool.m;
     
     // Generate r_base randomly from {1, 2, 3}
-    problem.r_base = Math.floor(Math.random() * 3) + 1;
+    problem.r_base = Math.floor(Math.random() * 2) + 1;
     
     let options = []; // This will hold the 4 options for this round
 
