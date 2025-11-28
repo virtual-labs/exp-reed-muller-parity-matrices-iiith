@@ -115,6 +115,9 @@ function resetUI() {
     document.querySelectorAll('input[type="radio"]').forEach(rb => rb.checked = false);
 }
 
+// --- History of previously asked questions ---
+let previousQuestions = [];
+
 /**
  * Sets up the randomized problem and updates the UI.
  */
@@ -128,6 +131,30 @@ function setupProblem(exp) {
     problem.r_base = Math.floor(Math.random() * 2) + 1;
     
     let options = []; // This will hold the 4 options for this round
+    let attempts = 0;
+    const maxRetries = 10;
+
+    do {
+        // 1. Pick a random r_base and r_problem
+        problem.r_base = Math.floor(Math.random() * 3) + 1;
+        problem.r_problem = exp === 1 ? problem.r_base : problem.m - problem.r_base - 1;
+
+        // 2. Check if this question has been asked recently
+        attempts++;
+    } while (previousQuestions.includes(problem.r_base) && attempts < maxRetries);
+
+    if (attempts >= maxRetries) {
+        console.log("Failed to generate a unique question after multiple attempts. Resetting history.");
+        previousQuestions = []; // Clear history to allow repeats
+    }
+
+    // Add the new question to the history
+    previousQuestions.push(problem.r_base);
+
+    // Limit the history size to 10 to avoid memory issues
+    if (previousQuestions.length > 10) {
+        previousQuestions.shift();
+    }
 
     if (exp === 1) {
         // --- EXPERIMENT 1: GENERATOR MATRIX ---
