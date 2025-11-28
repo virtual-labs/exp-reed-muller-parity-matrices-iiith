@@ -48,6 +48,7 @@ const expContent = {
                 <li><strong>Step 2:</strong> For Part 1, analyze the given binary vectors. Select all vectors that <strong>do not</strong> belong in the generator matrix of RM(r, m). (i.e., their monomial has degree > r or is invalid).</li>
                 <li><strong>Step 3:</strong> Submit Part 1. If correct, Part 2 will appear.</li>
                 <li><strong>Step 4:</strong> For Part 2, select the correct minimum distance d of the RM(r, m) code.</li>
+                <li><strong>Step 5:</strong> You can click the <strong>New Question</strong> button to try another question.</li>
             </ul>`,
         part1Title: "Which of the following vectors <strong>do not</strong> correspond to a row in the <strong>generator matrix</strong> of this code?",
         part2Title: "What is the <strong>minimum distance d</strong> of this RM(r, m) code?"
@@ -60,6 +61,7 @@ const expContent = {
                 <li><strong>Step 3:</strong> Hint: The rows of the parity check matrix of RM(r, m) are the rows of the generator matrix of its dual code, RM(m-r-1, m). So, you must select vectors with degree at most m-r-1.</li>
                 <li><strong>Step 4:</strong> Submit Part 1. If correct, Part 2 will appear.</li>
                 <li><strong>Step 5:</strong> For Part 2, select the correct <strong>minimum distance</strong> of the dual code.</li>
+                <li><strong>Step 6:</strong> You can click the <strong>New Question</strong> button to try another question.</li>
             </ul>`,
         part1Title: "Which of the following vectors <strong>do</strong> correspond to a row in the <strong>parity check matrix</strong> of this code?",
         part2Title: "What is the <strong>minimum distance </strong> of the dual code?"
