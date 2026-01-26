@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "The Reed-Muller code $RM(r, m)$ is defined by evaluating a set of polynomials. What is the length $n$ of all codewords in $RM(r, m)$?",
+      "question": "1. The Reed-Muller code $RM(r, m)$ is defined by evaluating a set of polynomials. What is the length $n$ of all codewords in $RM(r, m)$?",
       "answers": {
         "a": "$2^r$",
         "b": "$2^m$",
@@ -19,7 +19,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Which of the following polynomials would be evaluated to create a codeword in $RM(2, 4)$? (Variables are $X_4, X_3, X_2, X_1$)",
+      "question": "2. Which of the following polynomials would be evaluated to create a codeword in $RM(2, 4)$? (Variables are $X_4, X_3, X_2, X_1$)",
       "answers": {
         "a": "$P(X_4, X_3, X_2, X_1) = X_4X_3X_2 + X_1$",
         "b": "$P(X_4, X_3, X_2, X_1) = X_3X_1 + X_2 + 1$",
@@ -36,7 +36,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "When defining the polynomial basis for $RM(r, m)$, why do we typically only use multilinear monomials (e.g., $X_3X_1$) and not terms like $X_1^2$ or $X_2^3$?",
+      "question": "3. When defining the polynomial basis for $RM(r, m)$, why do we typically only use multilinear monomials (e.g., $X_3X_1$) and not terms like $X_1^2$ or $X_2^3$?",
       "answers": {
         "a": "Because $X_i^k = X_i$ for any $k \\ge 1$ when evaluating at any point $x_i \\in \\{0, 1\\}$.",
         "b": "Because polynomials with higher powers are too difficult to evaluate.",
@@ -53,7 +53,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Which codewords are present in the $RM(0, m)$ code?",
+      "question": "4. Which codewords are present in the $RM(0, m)$ code?",
       "answers": {
         "a": "The all-zero vector and the all-one vector.",
         "b": "Every vector with even weight and length $2^m$.",
@@ -70,7 +70,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "What is the dimension $k$ of the Reed-Muller code $RM(1, 4)$?",
+      "question": "5. What is the dimension $k$ of the Reed-Muller code $RM(1, 4)$?",
       "answers": {
         "a": "16",
         "b": "4",
@@ -87,7 +87,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "What is the minimum distance $d$ of the $RM(r, m)$ code?",
+      "question": "6. What is the minimum distance $d$ of the $RM(r, m)$ code?",
       "answers": {
         "a": "$2^{r+m}$",
         "b": "$2^r$",
@@ -104,7 +104,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Which specific code is $RM(m, m)$ equivalent to?",
+      "question": "7. Which specific code is $RM(m, m)$ equivalent to?",
       "answers": {
         "a": "The repetition code $RM(0, m)$.",
         "b": "The single-parity-check code $RM(m-1, m)$.",
@@ -121,7 +121,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Let $C_1 = RM(r, m)$ and $C_2 = RM(r+1, m)$. What is the relationship between these two codes?",
+      "question": "8. Let $C_1 = RM(r, m)$ and $C_2 = RM(r+1, m)$. What is the relationship between these two codes?",
       "answers": {
         "a": "$C_1$ is a subcode of $C_2$ ($C_1 \\subseteq C_2$).",
         "b": "$C_2$ is a subcode of $C_1$ ($C_2 \\subseteq C_1$).",
