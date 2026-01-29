@@ -9,7 +9,7 @@ The Kronecker product, denoted by the symbol $\otimes$, is an operation on two m
 If $A$ is an $m \times n$ matrix and $B$ is a $p \times q$ matrix, their Kronecker product $A \otimes B$ is the $mp \times nq$ block matrix:
 
 $$
-A \otimes B = \begin{pmatrix} a_{11}B & a_{12}B & \cdots & a_{1n}B \\ a_{21}B & a_{22}B & \cdots & a_{2n}B \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1}B & a_{m2}B & \cdots & a_{mn}B \end{pmatrix}
+A \otimes B = \begin{pmatrix} a_{11}B & a_{12}B & \cdots & a_{1n}B \\ a_{21}B & a_{22}B & \cdots & a_{2n}B \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1}B & a_{m2}B & \cdots & a_{mn}B \end{pmatrix} \tag{1}
 $$
 
 Essentially, each element $a_{ij}$ of matrix $A$ is replaced by the scaled matrix $a_{ij}B$.
@@ -17,7 +17,7 @@ Essentially, each element $a_{ij}$ of matrix $A$ is replaced by the scaled matri
 The Kronecker product is associative, meaning we can extend it to multiple matrices in a straightforward sequence:
 
 $$
-A \otimes B \otimes C = (A \otimes B) \otimes C = A \otimes (B \otimes C)
+A \otimes B \otimes C = (A \otimes B) \otimes C = A \otimes (B \otimes C) \tag{2}
 $$
 
 This allows us to define the $m$-fold Kronecker product of a matrix with itself, denoted $G^{\otimes m}$.
@@ -27,7 +27,7 @@ This allows us to define the $m$-fold Kronecker product of a matrix with itself,
 The entire family of Reed-Muller codes can be constructed from the $m$-fold Kronecker product of a simple $2 \times 2$ kernel matrix, operating in the binary field $\mathbb{F}_2$:
 
 $$
-G_2 = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+G_2 = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \tag{3}
 $$
 
 The matrix for an $RM(m, m)$ code, which is the space of all possible Boolean functions in $m$ variables, is given by $G_2^{\otimes m}$. This is a $2^m \times 2^m$ matrix.
@@ -37,12 +37,12 @@ The matrix for an $RM(m, m)$ code, which is the space of all possible Boolean fu
 - For $m=2$, the matrix is $G_2^{\otimes 2}$:
 
   $$
-  G_2^{\otimes 2} = G_2 \otimes G_2 = \begin{pmatrix} 1 \cdot G_2 & 1 \cdot G_2 \\ 0 \cdot G_2 & 1 \cdot G_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{pmatrix}
+  G_2^{\otimes 2} = G_2 \otimes G_2 = \begin{pmatrix} 1 \cdot G_2 & 1 \cdot G_2 \\ 0 \cdot G_2 & 1 \cdot G_2 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{pmatrix} \tag{4}
   $$
 
 - For $m=3$, the matrix is $G_2^{\otimes 3}$:
   $$
-  G_2^{\otimes 3} = G_2^{\otimes 2} \otimes G_2 = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{pmatrix}
+  G_2^{\otimes 3} = G_2^{\otimes 2} \otimes G_2 = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{pmatrix} \tag{5}
   $$
 
 #### 3. Selecting Rows for the Generator Matrix
@@ -63,34 +63,34 @@ An observation on the matrix $G_2^{\otimes m}$ is that the Hamming weight of its
   - **Parameters:** $m=2, r=1$.
   - **Selection Rule:** Select rows from $G_2^{\otimes 2}$ with weight $\ge 2^{2-1} = 2$.
   - The matrix $G_2^{\otimes 2}$ has rows with weights (4, 2, 2, 1). We select the first three rows.
-  - $$ G\_{RM(1,2)} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix} $$
+  - $$ G\_{RM(1,2)} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \end{pmatrix} \tag{6}$$
 
 - **Example 2: The $RM(1,3)$ Code**
 
   - **Parameters:** $m=3, r=1$.
   - **Selection Rule:** Select rows from $G_2^{\otimes 3}$ with weight $\ge 2^{3-1} = 4$.
   - The rows of $G_2^{\otimes 3}$ have weights (8, 4, 4, 2, 4, 2, 2, 1). We select the rows with weights 8 and 4. These are the rows with indices 0, 1, 2, and 4.
-  - $$ G\_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} $$
+  - $$ G\_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \tag{7}$$
 
 - **Example 3: The $RM(2,3)$ Code**
 
   - **Parameters:** $m=3, r=2$.
   - **Selection Rule:** Select rows from $G_2^{\otimes 3}$ with weight $\ge 2^{3-2} = 2$.
   - The rows of $G_2^{\otimes 3}$ have weights (8, 4, 4, 2, 4, 2, 2, 1). We select all rows except the last one (which has weight 1). This gives us 7 rows.
-  - $$ G\_{RM(2,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \end{pmatrix} $$
+  - $$ G\_{RM(2,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \end{pmatrix} \tag{8}$$
 
 - **Example 4: The $RM(0,m)$ Code (Repetition Code)**
 
   - **Parameters:** $m$ is any integer, $r=0$.
   - **Selection Rule:** Select rows from $G_2^{\otimes m}$ with weight $\ge 2^{m-0} = 2^m$.
   - Only the first row (the all-ones vector) of $G_2^{\otimes m}$ has this weight.
-  - $$ G\_{RM(0,m)} = \begin{pmatrix} 1 & 1 & \cdots & 1 \end{pmatrix} $$
+  - $$ G\_{RM(0,m)} = \begin{pmatrix} 1 & 1 & \cdots & 1 \end{pmatrix} \tag{9}$$
 
 - **Example 5: The $RM(m,m)$ Code (The full space $\mathbb{F}_2^{2^m}$)**
   - **Parameters:** $r=m$.
   - **Selection Rule:** Select rows from $G_2^{\otimes m}$ with weight $\ge 2^{m-m} = 2^0 = 1$.
   - All non-zero rows of $G_2^{\otimes m}$ have a weight of at least 1. Since the matrix is invertible, all rows are non-zero. Thus, we select all rows.
-  - $$ G\_{RM(m,m)} = G_2^{\otimes m} $$
+  - $$ G\_{RM(m,m)} = G_2^{\otimes m} \tag{10}$$
 
 ---
 
@@ -106,6 +106,7 @@ Therefore, our row selection rule, `weight` $\ge 2^{m-r}$, can be translated int
 
 $$
 \text{weight}( \text{Eval}(M_j) ) \ge 2^{m-r} \implies 2^{m-d} \ge 2^{m-r} \implies m-d \ge m-r \implies d \le r
+\tag{11}
 $$
 
 This shows that selecting rows with weight at least $2^{m-r}$ is identical to selecting the basis functions (monomials) of degree at most $r$.
@@ -131,7 +132,7 @@ Let's examine the rows of $G_2^{\otimes 3}$ and their corresponding monomials, w
 The selected monomials are $\{1, X_1, X_2, X_3\}$. The generator matrix is formed by taking the rows from $G_2^{\otimes 3}$ with indices 0, 1, 2, and 4, in that specific order.
 
 $$
-G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \begin{matrix} \leftarrow \text{Eval}(1) \\ \leftarrow \text{Eval}(X_3) \\ \leftarrow \text{Eval}(X_2) \\ \leftarrow \text{Eval}(X_1) \end{matrix}
+G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \begin{matrix} \leftarrow \text{Eval}(1) \\ \leftarrow \text{Eval}(X_3) \\ \leftarrow \text{Eval}(X_2) \\ \leftarrow \text{Eval}(X_1) \end{matrix} \tag{12}
 $$
 
 ---
@@ -143,7 +144,7 @@ A remarkable property of RM codes is that they are _duals_ of each other. The du
 **Theorem:** The dual of the $RM(r, m)$ code is the $RM(m-r-1, m)$ code.
 
 $$
-[RM(r, m)]^{\perp} = RM(m-r-1, m)
+[RM(r, m)]^{\perp} = RM(m-r-1, m) \tag{12}
 $$
 
 This implies that a generator matrix for $RM(m-r-1, m)$ is a valid parity-check matrix for $RM(r, m)$. Let $G_r$ be the generator matrix for $RM(r,m)$ and let $H = G_{m-r-1}$ be the generator matrix for $RM(m-r-1,m)$. To prove the duality, we must show that $G_r H^T = \mathbf{0}$.
@@ -157,19 +158,19 @@ This condition is satisfied if the dot product of any row from $G_r$ with any ro
 The dot product of these two vectors is the sum of their component-wise product:
 
 $$
-\text{Eval}(f) \cdot \text{Eval}(g) = \sum_{\mathbf{v} \in \mathbb{F}_2^m} f(\mathbf{v}) g(\mathbf{v}) = \sum_{\mathbf{v} \in \mathbb{F}_2^m} (f \cdot g)(\mathbf{v})
+\text{Eval}(f) \cdot \text{Eval}(g) = \sum_{\mathbf{v} \in \mathbb{F}_2^m} f(\mathbf{v}) g(\mathbf{v}) = \sum_{\mathbf{v} \in \mathbb{F}_2^m} (f \cdot g)(\mathbf{v}) \tag{13}
 $$
 
 The degree of the product polynomial $p(\mathbf{X}) = f(\mathbf{X})g(\mathbf{X})$ is:
 
 $$
-\text{deg}(p) = \text{deg}(f) + \text{deg}(g) \le r + (m-r-1) = m-1
+\text{deg}(p) = \text{deg}(f) + \text{deg}(g) \le r + (m-r-1) = m-1 \tag{14}
 $$
 
 We use a fundamental property of Boolean functions: for any non-zero Boolean polynomial $p(\mathbf{X})$ with degree less than $m$, the sum of its evaluations over all $2^m$ points is zero.
 
 $$
-\sum_{\mathbf{v} \in \mathbb{F}_2^m} p(\mathbf{v}) = 0
+\sum_{\mathbf{v} \in \mathbb{F}_2^m} p(\mathbf{v}) = 0 \tag{15}
 $$
 
 Since $\text{deg}(p) < m$, the dot product is zero. This holds for any pair of basis vectors (rows), proving the duality.
@@ -185,19 +186,19 @@ Let's verify the property $GH^T = \mathbf{0}$ with an example.
 From the previous section, the generator matrix is:
 
 $$
-G = G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix}
+G = G_{RM(1,3)} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \end{pmatrix} \tag{16}
 $$
 
 Its transpose is:
 
 $$
-G^T = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 1 & 0 & 0 \\ 1 & 0 & 1 & 0 \\ 1 & 1 & 1 & 0 \\ 1 & 0 & 0 & 1 \\ 1 & 1 & 0 & 1 \\ 1 & 0 & 1 & 1 \\ 1 & 1 & 1 & 1 \end{pmatrix}
+G^T = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 1 & 0 & 0 \\ 1 & 0 & 1 & 0 \\ 1 & 1 & 1 & 0 \\ 1 & 0 & 0 & 1 \\ 1 & 1 & 0 & 1 \\ 1 & 0 & 1 & 1 \\ 1 & 1 & 1 & 1 \end{pmatrix} \tag{17}
 $$
 
 Now, we compute the product $G G^T$. Each entry $(i,j)$ of the resulting matrix is the dot product of row $i$ of $G$ with row $j$ of $G$. All calculations are in $\mathbb{F}_2$.
 
 $$
-G G^T = \begin{pmatrix} 8 & 4 & 4 & 4 \\ 4 & 4 & 2 & 2 \\ 4 & 2 & 4 & 2 \\ 4 & 2 & 2 & 4 \end{pmatrix} \pmod 2 = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix}
+G G^T = \begin{pmatrix} 8 & 4 & 4 & 4 \\ 4 & 4 & 2 & 2 \\ 4 & 2 & 4 & 2 \\ 4 & 2 & 2 & 4 \end{pmatrix} \pmod 2 = \begin{pmatrix} 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \end{pmatrix} \tag{18}
 $$
 
 The result is the $4 \times 4$ zero matrix, confirming that the generator matrix for $RM(1,3)$ is a valid parity-check matrix for itself, as expected for a self-dual code.
@@ -223,7 +224,7 @@ Assume that for all $r' \le m'$, where $m' < m$, the minimum distance of the $RM
 To construct the generator matrix for $RM(r,m)$, we select rows from $G_2^{\otimes m}$. Recall the recursive structure:
 
 $$
-G_2^{\otimes m} = \begin{pmatrix} G_2^{\otimes (m-1)} & G_2^{\otimes (m-1)} \\ \mathbf{0} & G_2^{\otimes (m-1)} \end{pmatrix}
+G_2^{\otimes m} = \begin{pmatrix} G_2^{\otimes (m-1)} & G_2^{\otimes (m-1)} \\ \mathbf{0} & G_2^{\otimes (m-1)} \end{pmatrix} \tag{19}
 $$
 
 The rows of $G_{RM(r,m)}$ can be partitioned into two sets based on this structure:
@@ -235,19 +236,19 @@ The rows of $G_{RM(r,m)}$ can be partitioned into two sets based on this structu
 Combining these, the generator matrix for $RM(r,m)$ has the following block structure:
 
 $$
-G_{RM(r,m)} = \begin{pmatrix} G_{RM(r, m-1)} & G_{RM(r, m-1)} \\ \mathbf{0} & G_{RM(r-1, m-1)} \end{pmatrix}
+G_{RM(r,m)} = \begin{pmatrix} G_{RM(r, m-1)} & G_{RM(r, m-1)} \\ \mathbf{0} & G_{RM(r-1, m-1)} \end{pmatrix} \tag{20}
 $$
 
 Now consider an arbitrary non-zero codeword $\mathbf{c} \in RM(r,m)$. It is generated by a message vector, which we can partition as $(\mathbf{a} | \mathbf{b})$, where $\mathbf{a}$ is the part for the top block and $\mathbf{b}$ is for the bottom.
 
 $$
-\mathbf{c} = (\mathbf{a} | \mathbf{b}) \cdot G_{RM(r,m)} = (\mathbf{a} G_{RM(r, m-1)} | \mathbf{a} G_{RM(r, m-1)}) + (\mathbf{0} | \mathbf{b} G_{RM(r-1, m-1)})
+\mathbf{c} = (\mathbf{a} | \mathbf{b}) \cdot G_{RM(r,m)} = (\mathbf{a} G_{RM(r, m-1)} | \mathbf{a} G_{RM(r, m-1)}) + (\mathbf{0} | \mathbf{b} G_{RM(r-1, m-1)}) \tag{21}
 $$
 
 Let $\mathbf{u} = \mathbf{a} \cdot G_{RM(r, m-1)}$, which is a codeword in $RM(r, m-1)$, and let $\mathbf{v} = \mathbf{b} \cdot G_{RM(r-1, m-1)}$, a codeword in $RM(r-1, m-1)$. The codeword $\mathbf{c}$ can be written as:
 
 $$
-\mathbf{c} = (\mathbf{u} | \mathbf{u} + \mathbf{v})
+\mathbf{c} = (\mathbf{u} | \mathbf{u} + \mathbf{v}) \tag{22}
 $$
 
 This is the famous Plotkin construction, or $(u|u+v)$ construction. The Hamming weight of $\mathbf{c}$ is $wt(\mathbf{c}) = wt(\mathbf{u}) + wt(\mathbf{u} + \mathbf{v})$. We need to find the minimum possible weight for a non-zero $\mathbf{c}$.
@@ -258,21 +259,21 @@ We analyze two cases for the message $(\mathbf{a} | \mathbf{b})$:
   In this case, $\mathbf{v} = \mathbf{0}$ and $\mathbf{u}$ is a non-zero codeword in $RM(r, m-1)$. The codeword is $\mathbf{c} = (\mathbf{u} | \mathbf{u})$. The weight is $wt(\mathbf{c}) = 2 \cdot wt(\mathbf{u})$. The minimum weight in this case is twice the minimum distance of $RM(r, m-1)$. By our inductive hypothesis, this is:
 
   $$
-  wt_{min, 1} = 2 \cdot d_{min}(RM(r, m-1)) = 2 \cdot (2^{(m-1)-r}) = 2^{m-r}
+  wt_{min, 1} = 2 \cdot d_{min}(RM(r, m-1)) = 2 \cdot (2^{(m-1)-r}) = 2^{m-r} \tag{23}
   $$
 
 - **Case 2: $\mathbf{b} \neq \mathbf{0}$**
   In this case, $\mathbf{v}$ is a non-zero codeword in $RM(r-1, m-1)$. Since $\mathbf{v}$ and $\mathbf{u}+\mathbf{v}$ are vectors in a linear code, their sum $\mathbf{v}+(\mathbf{u}+\mathbf{v}) = \mathbf{u}$ is also in a linear space. The weight of the codeword is $wt(\mathbf{c}) = wt(\mathbf{u}) + wt(\mathbf{u} + \mathbf{v})$. It is known from the properties of the $(u|u+v)$ construction that the weight of any such codeword is at least the minimum distance of the code that produces the $\mathbf{v}$ part.
   More directly, the minimum weight of $\mathbf{v}$ is the minimum distance of $RM(r-1, m-1)$. By our inductive hypothesis:
   $$
-  wt(\mathbf{v}) \ge d_{min}(RM(r-1, m-1)) = 2^{(m-1)-(r-1)} = 2^{m-r}
+  wt(\mathbf{v}) \ge d_{min}(RM(r-1, m-1)) = 2^{(m-1)-(r-1)} = 2^{m-r} \tag{24}
   $$
   Since the second half of the codeword $\mathbf{c}$ is $\mathbf{u}+\mathbf{v}$, its weight is $wt(\mathbf{u}+\mathbf{v})$. The total weight is $wt(\mathbf{c}) = wt(\mathbf{u}) + wt(\mathbf{u}+\mathbf{v})$. The codewords form a linear code, so the minimum distance is the minimum weight of any non-zero codeword. For any codeword where $\mathbf{v} \ne 0$, its weight is at least $d_{min}(RM(r-1, m-1)) = 2^{m-r}$.
 
 Combining both cases, the minimum weight of any non-zero codeword is the minimum of the minimums from each case:
 
 $$
-d_{min}(RM(r,m)) = \min(2^{m-r}, 2^{m-r}) = 2^{m-r}
+d_{min}(RM(r,m)) = \min(2^{m-r}, 2^{m-r}) = 2^{m-r} \tag{25}
 $$
 
 The induction holds, and the proof is complete.
