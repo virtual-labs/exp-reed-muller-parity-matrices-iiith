@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "What is the $2 \\times 2$ binary kernel matrix $G_2$ that is used to construct the generator matrix for all Reed-Muller codes?",
+      "question": "1. What is the $2 \\times 2$ binary kernel matrix $G_2$ that is used to construct the generator matrix for all Reed-Muller codes?",
       "answers": {
         "a": "$\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$",
         "b": "$\\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix}$",
@@ -19,7 +19,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "Which matrix operation is repeatedly applied to the kernel $G_2$ to create the full $2^m \\times 2^m$ matrix $G_2^{\\otimes m}$?",
+      "question": "2. Which matrix operation is repeatedly applied to the kernel $G_2$ to create the full $2^m \\times 2^m$ matrix $G_2^{\\otimes m}$?",
       "answers": {
         "a": "Matrix Multiplication",
         "b": "Kronecker Product ($\\otimes$)",
@@ -36,7 +36,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "How is the generator matrix for the repetition code $RM(0, m)$ formed from $G_2^{\\otimes m}$?",
+      "question": "3. How is the generator matrix for the repetition code $RM(0, m)$ formed from $G_2^{\\otimes m}$?",
       "answers": {
         "a": "By selecting all rows of $G_2^{\\otimes m}$.",
         "b": "By selecting all rows with Hamming weight equal to 1.",
@@ -53,7 +53,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "How is the generator matrix for the full space $RM(m, m)$ formed from $G_2^{\\otimes m}$?",
+      "question": "4. How is the generator matrix for the full space $RM(m, m)$ formed from $G_2^{\\otimes m}$?",
       "answers": {
         "a": "By selecting all rows, as $G_{RM(m,m)} = G_2^{\\otimes m}$.",
         "b": "By selecting only the first row.",
@@ -70,7 +70,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "What is the general rule for selecting rows from $G_2^{\\otimes m}$ to form the generator matrix for $RM(r, m)$?",
+      "question": "5. What is the general rule for selecting rows from $G_2^{\\otimes m}$ to form the generator matrix for $RM(r, m)$?",
       "answers": {
         "a": "Select all rows with Hamming weight $\\le 2^{m-r}$.",
         "b": "Select all rows with Hamming weight $\\ge 2^{m-r}$.",
@@ -87,7 +87,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "The rows of $G_2^{\\otimes m}$ are the evaluation vectors of a set of polynomials. What set of polynomials do they represent?",
+      "question": "6. The rows of $G_2^{\\otimes m}$ are the evaluation vectors of a set of polynomials. What set of polynomials do they represent?",
       "answers": {
         "a": "All multilinear monomials of degree exactly $r$.",
         "b": "All multilinear monomials in $m$ variables (e.g., $1, X_1, X_2, X_1X_2, \\dots$).",
@@ -104,7 +104,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "According to the duality theorem, what is the dual code of $RM(r, m)$, denoted $[RM(r, m)]^{\\perp}$?",
+      "question": "7. According to the duality theorem, what is the dual code of $RM(r, m)$, denoted $[RM(r, m)]^{\\perp}$?",
       "answers": {
         "a": "$RM(m-r, m)$",
         "b": "$RM(r, m)$ (it is always self-dual)",
@@ -121,7 +121,7 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "The inductive proof for minimum distance relies on the $(u|u+v)$ construction. This implies $G_{RM(r,m)}$ has a specific recursive block structure. What is it?",
+      "question": "8. The inductive proof for minimum distance relies on the $(u|u+v)$ construction. This implies $G_{RM(r,m)}$ has a specific recursive block structure. What is it?",
       "answers": {
         "a": "$\\begin{pmatrix} G_{RM(r-1, m-1)} & G_{RM(r-1, m-1)} \\\\ \\mathbf{0} & G_{RM(r, m-1)} \\end{pmatrix}$",
         "b": "$\\begin{pmatrix} G_{RM(r, m-1)} & G_{RM(r-1, m-1)} \\\\ G_{RM(r-1, m-1)} & G_{RM(r, m-1)} \\end{pmatrix}$",

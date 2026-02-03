@@ -26,13 +26,13 @@ There are two tasks in this experiment.
 1. Given parameters of RM code, identify the vectors not present in the standard generator matrix of the code.
 
 <div style = "text-align: center;">
-    <img src="images/generator_matrix_part_1.png" alt="alt text" width="500"/>
+    <img src="images/generator_matrix_part_1.png" alt="alt text" width="250"/>
 </div>
 
 2. Calculate the minimum distance of RM code with given parameter.
 
 <div style = "text-align: center;">
-    <img src="images/generator_matrix_part_2.png" alt="alt text" width="500"/>
+    <img src="images/generator_matrix_part_2.png" alt="alt text" width="250"/>
 </div>
 
 #### Task 2: Parity Check Matrix and Minimum Distance of Dual Code
@@ -40,11 +40,11 @@ There are two tasks in this experiment.
 1. Given parameters of RM code, identify the vectors present in the standard parity check matrix of the code.
 
 <div style = "text-align: center;">
-    <img src="images/parity_check_matrix_part_1.png" alt="alt text" width="500"/>
+    <img src="images/parity_check_matrix_part_1.png" alt="alt text" width="250"/>
 </div>
 
 2. Calculate the minimum distance of the dual of RM code with given parameter.
 
 <div style = "text-align: center;">
-    <img src="images/parity_check_matrix_part_2.png" alt="alt text" width="500"/>
+    <img src="images/parity_check_matrix_part_2.png" alt="alt text" width="250"/>
 </div>
