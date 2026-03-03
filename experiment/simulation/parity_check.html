@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        RM Code Properties - Exp 1
+        RM Code Properties - Exp 2
     </title>
 
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 
 </head>
 
-<body data-exp="1">
+<body data-exp="2">
 
     <div class="container" style="margin-top:1%;"></div>
 
@@ -30,12 +30,12 @@
         <div class="column">
             <div class="v-tabs">
                 <ul>
-                    <li class="is-active" id="tab-exp1">
+                    <li id="tab-exp1" onclick="window.location.href = 'index.html';">
                         <a>
                             Generator Matrix
                         </a>
                     </li>
-                    <li id="tab-exp2" onclick="window.location.href = 'parity_check.html';">
+                    <li class="is-active" id="tab-exp2">
                         <a>
                             Parity Check Matrix
                         </a>
@@ -110,7 +110,7 @@
                 </section>
                 <div class="button-container" id="part1ButtonContainer">
                     <button class="v-button" id="submitPart1Button">Submit Part 1</button>
-                    <button class="v-button v-button-reload" id="reloadBtn1">New Question</button>
+                    <button class="v-button v-button-reload" id="reloadBtn1">Reload</button>
                 </div>
 
                 <hr>
@@ -145,7 +145,7 @@
                 <br>
                 <div class="button-container" id="part2ButtonContainer" style="display:none; margin-top: 1rem;">
                     <button class="v-button" id="submitPart2Button">Check Part 2</button>
-                    <button class="v-button v-button-reload" id="reloadBtn2">New Question</button>
+                    <button class="v-button v-button-reload" id="reloadBtn2">Reload</button>
                 </div>
 
             </div>

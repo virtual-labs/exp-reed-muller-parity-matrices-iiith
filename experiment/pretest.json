@@ -2,38 +2,140 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "1. The Reed-Muller code $RM(r, m)$ is defined by evaluating a set of polynomials. What is the length $n$ of all codewords in $RM(r, m)$?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "$2^r$",
+        "b": "$2^m$",
+        "c": "$\\binom{m}{r}$",
+        "d": "$m+r$"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. This confuses the degree $r$ with the number of variables $m$.",
+        "b": "Correct. The polynomials are in $m$ variables, and they are evaluated at every possible point in $F_2^m$. There are $2^m$ such points.",
+        "c": "Incorrect. This binomial coefficient is related to the *dimension* of the code, not its length.",
+        "d": "Incorrect. This is not a standard parameter for Reed-Muller codes."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Which of the following polynomials would be evaluated to create a codeword in $RM(2, 4)$? (Variables are $X_4, X_3, X_2, X_1$)",
+      "answers": {
+        "a": "$P(X_4, X_3, X_2, X_1) = X_4X_3X_2 + X_1$",
+        "b": "$P(X_4, X_3, X_2, X_1) = X_3X_1 + X_2 + 1$",
+        "c": "$P(X_4, X_3, X_2, X_1) = X_4X_3X_2X_1$",
+        "d": "$P(X_4, X_3, X_2, X_1) = X_1X_2X_3X_4 + X_2$"
+      },
+      "explanations": {
+        "a": "Incorrect. The monomial $X_4X_3X_2$ has a total degree of 3, which is greater than $r=2$.",
+        "b": "Correct. The monomials are $X_3X_1$ (degree 2), $X_2$ (degree 1), and $1$ (degree 0). The total degree of the polynomial is the max of these, which is 2. This is $\\le r=2$.",
+        "c": "Incorrect. The monomial $X_4X_3X_2X_1$ has a total degree of 4, which is greater than $r=2$.",
+        "d": "Incorrect. The monomial $X_1X_2X_3X_4$ has a total degree of 4, which is greater than $r=2$."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. When defining the polynomial basis for $RM(r, m)$, why do we typically only use multilinear monomials (e.g., $X_3X_1$) and not terms like $X_1^2$ or $X_2^3$?",
+      "answers": {
+        "a": "Because $X_i^k = X_i$ for any $k \\ge 1$ when evaluating at any point $x_i \\in \\{0, 1\\}$.",
+        "b": "Because polynomials with higher powers are too difficult to evaluate.",
+        "c": "Because the degree $r$ is always less than 2.",
+        "d": "Because $X_i^k = 0$ in $F_2$, so these terms vanish."
+      },
+      "explanations": {
+        "a": "Correct. Since we evaluate at $0$ or $1$, $0^k=0$ and $1^k=1$. This means the evaluation of $X_i^k$ is identical to the evaluation of $X_i$, so we only need to consider the multilinear form.",
+        "b": "Incorrect. The difficulty of evaluation is not the reason.",
+        "c": "Incorrect. The degree $r$ can be any value from $0$ to $m$.",
+        "d": "Incorrect. $X_i^k$ is not always zero (e.g., $1^2 = 1$)."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "4. Which codewords are present in the $RM(0, m)$ code?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The all-zero vector and the all-one vector.",
+        "b": "Every vector with even weight and length $2^m$.",
+        "c": "There are $m$ codewords, one for each variable.",
+        "d": "Only the all-zero vector."
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Correct. $RM(0, m)$ consists of evaluations of polynomials of degree at most 0. The only such polynomials are $P=0$ (which evaluates to $00...0$) and $P=1$ (which evaluates to $11...1$).",
+        "b": "Incorrect. The single-parity-check code is $RM(m-1, m)$.",
+        "c": "Incorrect. This describes neither the codewords nor the dimension.",
+        "d": "Incorrect. It always contains the $P=0$ and $P=1$ polynomials, so its dimension is 1."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. What is the dimension $k$ of the Reed-Muller code $RM(1, 4)$?",
+      "answers": {
+        "a": "16",
+        "b": "4",
+        "c": "5",
+        "d": "8"
+      },
+      "explanations": {
+        "a": "Incorrect. This is the length $n = 2^m = 2^4 = 16$.",
+        "b": "Incorrect. This is the number of basis monomials of degree exactly 1 ($X_4, X_3, X_2, X_1$). It forgets the degree 0 monomial.",
+        "c": "Correct. The dimension is the number of basis monomials of degree $\\le r=1$ in $m=4$ variables. These are $1$ (degree 0) and $X_4, X_3, X_2, X_1$ (degree 1). The total count is $1 + 4 = 5$.",
+        "d": "Incorrect. This does not correspond to a standard parameter here."
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "6. What is the minimum distance $d$ of the $RM(r, m)$ code?",
+      "answers": {
+        "a": "$2^{r+m}$",
+        "b": "$2^r$",
+        "c": "$2^{m-r}$",
+        "d": "$2^{r-m}$"
+      },
+      "explanations": {
+        "a": "Incorrect. This value is much too large.",
+        "b": "Incorrect. The distance depends on both $m$ and $r$.",
+        "c": "Correct. This is the fundamental formula for the minimum distance of an $RM(r, m)$ code.",
+        "d": "Incorrect. The exponent $r-m$ would be negative, which doesn't make sense for distance."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. Which specific code is $RM(m, m)$ equivalent to?",
+      "answers": {
+        "a": "The repetition code $RM(0, m)$.",
+        "b": "The single-parity-check code $RM(m-1, m)$.",
+        "c": "The entire space $\\mathbb{F}_2^n$, where $n=2^m$.",
+        "d": "The empty code containing only the zero vector."
+      },
+      "explanations": {
+        "a": "Incorrect. $RM(0, m)$ has dimension 1, while $RM(m, m)$ has dimension $2^m$.",
+        "b": "Incorrect. $RM(m-1, m)$ has dimension $2^m - 1$, while $RM(m, m)$ has dimension $2^m$.",
+        "c": "Correct. $RM(m, m)$ includes all multilinear polynomials in $m$ variables. This set of polynomials can uniquely represent *any* function $f: F_2^m \to F_2$. Therefore, its evaluation vectors can form any of the $2^n$ possible vectors of length $n=2^m$.",
+        "d": "Incorrect. The code has dimension $k=2^m$."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. Let $C_1 = RM(r, m)$ and $C_2 = RM(r+1, m)$. What is the relationship between these two codes?",
+      "answers": {
+        "a": "$C_1$ is a subcode of $C_2$ ($C_1 \\subseteq C_2$).",
+        "b": "$C_2$ is a subcode of $C_1$ ($C_2 \\subseteq C_1$).",
+        "c": "$C_1$ and $C_2$ are disjoint (except for the zero vector).",
+        "d": "$C_1$ is the dual code of $C_2$ ($C_1 = C_2^\\perp$)."
+      },
+      "explanations": {
+        "a": "Correct. $C_1$ is the set of evaluations of polynomials of degree at most $r$. $C_2$ is the set of evaluations of polynomials of degree at most $r+1$. Any polynomial of degree $\\le r$ is, by definition, also a polynomial of degree $\\le r+1$. Therefore, every codeword in $C_1$ is also a codeword in $C_2$.",
+        "b": "Incorrect. $C_2$ contains codewords from polynomials of degree $r+1$, which are not in $C_1$.",
+        "c": "Incorrect. They share many codewords, including all of $C_1$.",
+        "d": "Incorrect. The dual of $C_2 = RM(r+1, m)$ is $RM(m-(r+1)-1, m) = RM(m-r-2, m)$, which is not $C_1$ (unless $m$ and $r$ are very specific values)."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
     }
   ]
 }
