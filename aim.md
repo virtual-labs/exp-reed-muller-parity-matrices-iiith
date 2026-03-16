@@ -1,0 +1,1 @@
+The aim of this experiment is to illustrate a standard construction of the generator matrix of the $RM(r,m)$ code, as well as its parity check matrix. The user can read the theory part first, and then approach the experiment. The theory parts conveys the main ideas with many constructive examples. 

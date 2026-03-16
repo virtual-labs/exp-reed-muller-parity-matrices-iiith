@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        RM Code Properties - Exp 1
+    </title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+</head>
+
+<body data-exp="1">
+
+    <div class="container" style="margin-top:1%;"></div>
+
+    <div class="columns is-centered">
+        <div class="column is-one-quarter v-instruction-title">
+            RM Code Properties
+        </div>
+        <div class="column">
+            <div class="v-tabs">
+                <ul>
+                    <li class="is-active" id="tab-exp1">
+                        <a>
+                            Generator Matrix
+                        </a>
+                    </li>
+                    <li id="tab-exp2" onclick="window.location.href = 'parity_check.html';">
+                        <a>
+                            Parity Check Matrix
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-collapsible-instruction-container v-instruction-container">
+                <div class="v-collapsible is-size-5">Instructions</div>
+                <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                    <br>
+                    <div id="instructions-content"></div> 
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="columns is-centered">
+        <div class="column is-11-desktop is-12-tablet is-12-mobile">
+            <div class="v-datalist-container components-list" id="questionStatement">
+                <p>Consider a Reed-Muller code with parameters &nbsp;
+                    <span class="has-text-centered is-size-5" id="rmParams"></span>
+                    &nbsp;
+                    Answer the following two-part question.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+        <div class="column is-8-desktop is-12-tablet is-12-mobile">
+            <div class="box-question">
+
+                <section id="part1Question" style="margin-bottom: 2rem;">
+                    <p class="is-size-5" style="margin-bottom: 1rem;">
+                        <strong id="part1QuestionTitle"></strong>
+                        <br>
+                        <small>
+                            (Select all that apply. Assumes evaluation points \((X_1, X_2, X_3, X_4)\) are ordered from
+                            \((0,0,0,0)\) to \((1,1,1,1)\) where the \(i\)-th vector corresponds to the binary
+                            representation of \(i\), with \(X_1\) as the MSB.)
+                        </small>
+                    </p>
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" id="opt-deg1" name="generator_choice">
+                            <span id="vec1" class="vector-text"></span>
+                        </label>
+                        <br>
+                        <label class="checkbox">
+                            <input type="checkbox" id="opt-deg2" name="generator_choice">
+                            <span id="vec2" class="vector-text"></span>
+                        </label>
+                        <br>
+                        <label class="checkbox">
+                            <input type="checkbox" id="opt-deg3" name="generator_choice">
+                            <span id="vec3" class="vector-text"></span>
+                        </label>
+                        <br>
+                        <label class="checkbox">
+                            <input type="checkbox" id="opt-deg4" name="generator_choice">
+                            <span id="vec4" class="vector-text"></span>
+                        </label>
+                    </div>
+                </section>
+                <div class="button-container" id="part1ButtonContainer">
+                    <button class="v-button" id="submitPart1Button">Submit Part 1</button>
+                    <button class="v-button v-button-reload" id="reloadBtn1">New Question</button>
+                </div>
+
+                <hr>
+
+                <section id="part2Question" style="margin-top: 2rem; display:none;">
+                    <p class="is-size-5" style="margin-bottom: 1rem;">
+                        <strong id="part2QuestionTitle"></strong>
+                    </p>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="distance_choice" value="2">
+                            \(d = 2\)
+                        </label>
+                        <br>
+                        <label class="radio">
+                            <input type="radio" name="distance_choice" value="4">
+                            \(d = 4\)
+                        </label>
+                        <br>
+                        <label class="radio">
+                            <input type="radio" name="distance_choice" value="8">
+                            \(d = 8\)
+                        </label>
+                        <br>
+                        <label class="radio">
+                            <input type="radio" name="distance_choice" value="16">
+                            \(d = 16\)
+                        </label>
+                    </div>
+                </section>
+
+                <br>
+                <div class="button-container" id="part2ButtonContainer" style="display:none; margin-top: 1rem;">
+                    <button class="v-button" id="submitPart2Button">Check Part 2</button>
+                    <button class="v-button v-button-reload" id="reloadBtn2">New Question</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div id="observation">
+                    <p>Your feedback will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+    <script src="./js/script.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+
+</html>

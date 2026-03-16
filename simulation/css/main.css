@@ -1,0 +1,231 @@
+/* ... (all styles from your previous example) ... */
+
+.window {
+    z-index: 20;
+}
+
+.jtk-connector {
+    z-index: 4;
+}
+
+.jtk-endpoint {
+    z-index: 5;
+}
+
+.jtk-overlay {
+    z-index: 6;
+}
+
+/* disabling text selection */
+body {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+img {
+    -drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+text {
+    pointer-events: none;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 2em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.container {
+    margin-top: 1%;
+}
+
+.column {
+    text-align: center;
+}
+
+.components-list {
+    padding: 2% 5%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Changed for easier alignment */
+    flex-wrap: wrap;
+    align-content: start;
+    justify-content: flex-start;
+    /* Aligned to top */
+    padding: 10px;
+    font-weight: 500;
+}
+
+
+.v-instruction-container {
+    border: .2rem solid #97d23d;
+    justify-content: flex-start;
+}
+
+.v-datalist-title {
+    padding-top: 1%;
+    text-align: center;
+    /* Ensure title is centered */
+    width: 100%;
+    /* Ensure title spans width */
+}
+
+
+#observation {
+    font-size: 1.1em;
+    text-align: left;
+    /* Align feedback text left */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.box-question {
+    border: solid black;
+    border-radius: 0.5em;
+    padding: 2%;
+    text-align: left;
+    /* Align question text left */
+}
+
+.bit {
+    height: 2.5em;
+    width: 2.5em;
+    border: solid black;
+    border-radius: 0.5em;
+    background-color: rgb(40, 142, 200);
+    font-size: 1em;
+    text-align: center;
+    color: rgb(2, 2, 74);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Error Detection */
+
+select {
+    width: auto;
+    padding: 0.5em 1em;
+    border: groove;
+    border-radius: 0.2em;
+    background-color: #f1f1f1;
+}
+
+.v-button-bit {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 16px;
+    outline: none;
+}
+
+.v-button-bit:hover {
+    opacity: 0.9;
+}
+
+.v-button-bit:active {
+    transform: scale(0.95);
+}
+
+/* --- New Styles for this Exercise --- */
+
+label.checkbox,
+label.radio {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    display: block;
+    /* Make labels stack vertically */
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+label.checkbox:hover,
+label.radio:hover {
+    background-color: #f5f5f5;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #3273dc;
+    /* Primary color */
+    transform: scale(1.2);
+    /* Slightly larger size */
+}
+
+/* Style for the binary vector text */
+.vector-text {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: normal;
+    display: block;
+    /* Puts vector on its own line */
+    margin-top: 5px;
+    padding-left: 20px;
+    /* Indents the vector slightly */
+}
+
+/* Feedback styles */
+.feedback-correct {
+    color: green;
+    font-weight: bold;
+}
+
+.feedback-incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+/* Button Container for side-by-side alignment */
+.button-container {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Specific style for the Reload button (e.g., orange/warning color) */
+.v-button-reload {
+    /* background-color: #3273dc; Orange */
+    color: white;
+    /* border: 1px solid #3273dc; */
+}
+
+.v-button:hover {
+    background-color: #e68a00;
+}

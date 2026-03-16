@@ -1,0 +1,11 @@
+
+/home/runner/work/exp-reed-muller-parity-matrices-iiith/exp-reed-muller-parity-matrices-iiith/experiment/simulation/js/script.js
+   48:152  warning  Unnecessary escape character: \(                 no-useless-escape
+   48:159  warning  Unnecessary escape character: \o                 no-useless-escape
+   48:169  warning  Unnecessary escape character: \)                 no-useless-escape
+  273:9    warning  'correctIDs' is assigned a value but never used  no-unused-vars
+  296:329  warning  Unnecessary escape character: \(                 no-useless-escape
+  296:352  warning  Unnecessary escape character: \)                 no-useless-escape
+
+✖ 6 problems (0 errors, 6 warnings)
+
