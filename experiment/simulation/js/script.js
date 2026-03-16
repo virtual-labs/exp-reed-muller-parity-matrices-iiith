@@ -145,7 +145,7 @@ function setupProblem(exp) {
     problem.activeExperiment = exp;
     problem.m = monomialPool.m;
     
-    // Generate r_base randomly from {1, 2, 3}
+    // Generate r_base randomly from {1, 2}
     problem.r_base = Math.floor(Math.random() * 2) + 1;
     
     let options = []; // This will hold the 4 options for this round
@@ -154,7 +154,7 @@ function setupProblem(exp) {
 
     do {
         // 1. Pick a random r_base and r_problem
-        problem.r_base = Math.floor(Math.random() * 3) + 1;
+        problem.r_base = Math.floor(Math.random() * 2) + 1;
         problem.r_problem = exp === 1 ? problem.r_base : problem.m - problem.r_base - 1;
 
         // 2. Check if this question has been asked recently
